@@ -1,0 +1,2 @@
+Given /^nothing$/ do
+end
