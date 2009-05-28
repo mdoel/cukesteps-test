@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  calories: 1
+  fat_calories: 1
+  cholesterol: 1
+
+two:
+  calories: 1
+  fat_calories: 1
+  cholesterol: 1

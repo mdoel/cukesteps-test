@@ -6,7 +6,7 @@ begin
   Cucumber::Rake::Task.new(:features) do |t|
     t.cucumber_opts = "--format pretty"
   end
-  task :features => 'db:test:prepare'
+  task :features => ['db:test:prepare', 'testing', 'db:loadbrands']
 rescue LoadError
   desc 'Cucumber rake task not available'
   task :features do
