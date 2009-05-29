@@ -18,3 +18,7 @@ require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
 
 include FixtureReplacement
+include CukeAssociationHelpers
+
+cuke_association_builders(:brand => :build_associated_via_find_by_name,
+                        :location => :from_factory)

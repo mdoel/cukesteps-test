@@ -1916,3 +1916,371 @@ Migrating to CreateEmployees (20090526190058)
   [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "entrees" [0m
   [4;35;1mBrand Load (0.4ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."name" = 'Arbys') LIMIT 1[0m
   [4;36;1mLocation Create (0.6ms)[0m   [0;1mINSERT INTO "locations" ("updated_at", "address", "created_at") VALUES('2009-05-27 19:38:46', 'femxptyylh', '2009-05-27 19:38:46')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (52.9ms)[0m   [0;1mCREATE TABLE "brands" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "employees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "entrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "calories" integer, "fat_calories" integer, "cholesterol" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE "menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "entree_id" integer, "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mCREATE TABLE "restaurants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "wifi" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.5ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526190058')[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526171809')[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526172104')[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526180832')[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526181504')[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526190024')[0m
+  [4;36;1mBrand Load (0.1ms)[0m   [0;1mSELECT * FROM "brands" [0m
+  [4;35;1mBrand Create (0.4ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('McDonalds', '2009-05-28 12:47:28', '2009-05-28 12:47:28')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Arbys', '2009-05-28 12:47:28', '2009-05-28 12:47:28')[0m
+  [4;35;1mBrand Create (0.2ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Chipotle', '2009-05-28 12:47:28', '2009-05-28 12:47:28')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Pizza Hut', '2009-05-28 12:47:28', '2009-05-28 12:47:28')[0m
+  [4;35;1mEntree Create (0.5ms)[0m   [0mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 12:47:31', 80, 10, 100, '2009-05-28 12:47:31')[0m
+  [4;36;1mEntree Create (0.1ms)[0m   [0;1mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 12:47:31', 200, 10, 250, '2009-05-28 12:47:31')[0m
+  [4;35;1mEntree Create (0.1ms)[0m   [0mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 12:47:31', 10, 10, 75, '2009-05-28 12:47:31')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "entrees" [0m
+  [4;35;1mEntree Create (0.5ms)[0m   [0mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 12:47:31', 80, 10, 100, '2009-05-28 12:47:31')[0m
+  [4;36;1mEntree Create (0.1ms)[0m   [0;1mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 12:47:31', 200, 10, 250, '2009-05-28 12:47:31')[0m
+  [4;35;1mEntree Create (0.1ms)[0m   [0mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 12:47:31', 10, 10, 75, '2009-05-28 12:47:31')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "entrees" [0m
+  [4;35;1mBrand Load (0.3ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."name" = 'Arbys') LIMIT 1[0m
+  [4;36;1mLocation Create (0.3ms)[0m   [0;1mINSERT INTO "locations" ("updated_at", "address", "created_at") VALUES('2009-05-28 12:47:31', 'rhsdwqhfeb', '2009-05-28 12:47:31')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "brands" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "employees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "entrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "calories" integer, "fat_calories" integer, "cholesterol" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE "menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "entree_id" integer, "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "restaurants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "wifi" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526190058')[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526171809')[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526172104')[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526180832')[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526181504')[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526190024')[0m
+  [4;36;1mBrand Load (0.2ms)[0m   [0;1mSELECT * FROM "brands" [0m
+  [4;35;1mBrand Create (0.4ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('McDonalds', '2009-05-28 20:05:44', '2009-05-28 20:05:44')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Arbys', '2009-05-28 20:05:44', '2009-05-28 20:05:44')[0m
+  [4;35;1mBrand Create (0.2ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Chipotle', '2009-05-28 20:05:44', '2009-05-28 20:05:44')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Pizza Hut', '2009-05-28 20:05:44', '2009-05-28 20:05:44')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "brands" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "employees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "entrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "calories" integer, "fat_calories" integer, "cholesterol" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "entree_id" integer, "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mCREATE TABLE "restaurants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "wifi" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526190058')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526171809')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526172104')[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526180832')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526181504')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526190024')[0m
+  [4;36;1mBrand Load (0.2ms)[0m   [0;1mSELECT * FROM "brands" [0m
+  [4;35;1mBrand Create (0.4ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('McDonalds', '2009-05-28 20:28:01', '2009-05-28 20:28:01')[0m
+  [4;36;1mBrand Create (0.3ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Arbys', '2009-05-28 20:28:01', '2009-05-28 20:28:01')[0m
+  [4;35;1mBrand Create (0.5ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Chipotle', '2009-05-28 20:28:01', '2009-05-28 20:28:01')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Pizza Hut', '2009-05-28 20:28:01', '2009-05-28 20:28:01')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "brands" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "employees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "entrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "calories" integer, "fat_calories" integer, "cholesterol" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "entree_id" integer, "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "restaurants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "wifi" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526190058')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526171809')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526172104')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526180832')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526181504')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526190024')[0m
+  [4;36;1mBrand Load (0.1ms)[0m   [0;1mSELECT * FROM "brands" [0m
+  [4;35;1mBrand Create (0.4ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('McDonalds', '2009-05-28 20:32:02', '2009-05-28 20:32:02')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Arbys', '2009-05-28 20:32:02', '2009-05-28 20:32:02')[0m
+  [4;35;1mBrand Create (0.2ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Chipotle', '2009-05-28 20:32:02', '2009-05-28 20:32:02')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Pizza Hut', '2009-05-28 20:32:02', '2009-05-28 20:32:02')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "brands" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "employees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "entrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "calories" integer, "fat_calories" integer, "cholesterol" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "entree_id" integer, "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE TABLE "restaurants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "wifi" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526190058')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526171809')[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526172104')[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526180832')[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526181504')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526190024')[0m
+  [4;36;1mBrand Load (0.1ms)[0m   [0;1mSELECT * FROM "brands" [0m
+  [4;35;1mBrand Create (0.3ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('McDonalds', '2009-05-28 21:04:06', '2009-05-28 21:04:06')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Arbys', '2009-05-28 21:04:06', '2009-05-28 21:04:06')[0m
+  [4;35;1mBrand Create (0.2ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Chipotle', '2009-05-28 21:04:06', '2009-05-28 21:04:06')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Pizza Hut', '2009-05-28 21:04:06', '2009-05-28 21:04:06')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "brands" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "employees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "entrees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "calories" integer, "fat_calories" integer, "cholesterol" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "entree_id" integer, "restaurant_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCREATE TABLE "restaurants" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "wifi" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526190058')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526171809')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526172104')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526180832')[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090526181504')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090526190024')[0m
+  [4;36;1mBrand Load (0.2ms)[0m   [0;1mSELECT * FROM "brands" [0m
+  [4;35;1mBrand Create (0.4ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('McDonalds', '2009-05-28 21:07:06', '2009-05-28 21:07:06')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Arbys', '2009-05-28 21:07:06', '2009-05-28 21:07:06')[0m
+  [4;35;1mBrand Create (0.2ms)[0m   [0mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Chipotle', '2009-05-28 21:07:06', '2009-05-28 21:07:06')[0m
+  [4;36;1mBrand Create (0.2ms)[0m   [0;1mINSERT INTO "brands" ("name", "updated_at", "created_at") VALUES('Pizza Hut', '2009-05-28 21:07:06', '2009-05-28 21:07:06')[0m
+  [4;35;1mEntree Create (95.8ms)[0m   [0mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 21:07:08', 80, 10, 100, '2009-05-28 21:07:08')[0m
+  [4;36;1mEntree Create (0.1ms)[0m   [0;1mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 21:07:08', 200, 10, 250, '2009-05-28 21:07:08')[0m
+  [4;35;1mEntree Create (0.1ms)[0m   [0mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 21:07:08', 10, 10, 75, '2009-05-28 21:07:08')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "entrees" [0m
+  [4;35;1mEntree Create (0.3ms)[0m   [0mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 21:07:08', 80, 10, 100, '2009-05-28 21:07:08')[0m
+  [4;36;1mEntree Create (0.1ms)[0m   [0;1mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 21:07:08', 200, 10, 250, '2009-05-28 21:07:08')[0m
+  [4;35;1mEntree Create (0.1ms)[0m   [0mINSERT INTO "entrees" ("updated_at", "fat_calories", "cholesterol", "calories", "created_at") VALUES('2009-05-28 21:07:08', 10, 10, 75, '2009-05-28 21:07:08')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "entrees" [0m
+  [4;35;1mBrand Load (0.2ms)[0m   [0mSELECT * FROM "brands" WHERE ("brands"."name" = 'Arbys') LIMIT 1[0m
+  [4;36;1mLocation Create (0.3ms)[0m   [0;1mINSERT INTO "locations" ("updated_at", "address", "created_at") VALUES('2009-05-28 21:07:08', 'gwmgygtlox', '2009-05-28 21:07:08')[0m
