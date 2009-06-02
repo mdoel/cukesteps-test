@@ -1,0 +1,7 @@
+generate
+db/*.sqlite3
+coverage
+.DS_Store
+tmp/**/*
+log/*.log
+
