@@ -1,0 +1,34 @@
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-06-01 17:15:15) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-06-01 17:31:23) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-06-01 17:46:32) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-06-01 17:47:18) [GET]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-06-01 17:49:43) [GET]
+Rendering homepage/index
+Completed in 22ms (View: 21, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-06-01 17:51:08) [GET]
+Rendering homepage/index
+Completed in 11ms (View: 10, DB: 0) | 200 OK [http://www.example.com/]
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing HomepageController#index (for 127.0.0.1 at 2009-06-01 17:51:08) [GET]
+Rendering homepage/index
+Completed in 1ms (View: 0, DB: 0) | 200 OK [http://www.example.com/]

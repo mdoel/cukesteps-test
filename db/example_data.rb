@@ -19,7 +19,6 @@ module FixtureReplacement
 
   attributes_for :employee do |e|
     e.name = random_string
-    e.restaurant = default_restaurant
   end
 
 end
