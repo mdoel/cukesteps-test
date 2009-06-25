@@ -49,3 +49,9 @@ Feature: Selector steps
 
   Scenario: The containing-element in the outer-element should not contain a non-existing-element
     Then the containing-element in the outer-element should not contain a non-existing-element
+
+  Scenario: The containing_element in the outer_element should contain a inner_class_element
+    Then the containing_element in the outer_element should contain a inner_class_element
+
+  Scenario: The containing_element in the outer_element should not contain a non_existing_element
+    Then the containing_element in the outer_element should not contain a non_existing_element

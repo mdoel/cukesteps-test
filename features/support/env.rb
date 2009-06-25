@@ -20,5 +20,5 @@ require 'webrat/core/matchers'
 include FixtureReplacement
 include CukeAssociationHelpers
 
-cuke_association_builders(:brand => :build_associated_via_find_by_name,
-                          :location => :from_factory)
+cuke_association_attributes(:brand => :name,
+                            :location => :address)
