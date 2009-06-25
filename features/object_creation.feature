@@ -46,15 +46,16 @@ Feature: Model Creation Steps
       | Columbus   | Chipotle  |
     Then 2 restaurants should exist
 
-  Scenario: Linked objects
-    Given the following employees exist
-      | employee | name    |
-      | first    | joe     |
-      | second   | sally   |
-      | third    | william |
+  Scenario: Linked objects with parent object defined first
     Given the following restaurants exist
-      | Location   | Brand     | Employees    |
-      | Miami, fl  | McDonalds | first        |
-      | Columbus   | Chipotle  | second,third |
+      | restaurant | Location   | Brand     |
+      | mcd-miami  | Miami, fl  | McDonalds |
+      | chip-cols  | Columbus   | Chipotle  |
+    Given the following employees exist
+      | name    | restaurant |
+      | joe     | mcd-miami  |
+      | sally   | chip-cols  |
+      | william | chip-cols  |
     Then 2 restaurants should exist
     And 3 employees should exist
+    And the "Chipotle" restaurant in "Columbus" has 2 employees

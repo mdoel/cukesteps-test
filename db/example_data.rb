@@ -13,12 +13,15 @@ module FixtureReplacement
 
   attributes_for :restaurant do |r|
     r.wifi = true
-    r.brand = Brand.find_by_name("Arbys")
     r.location = default_location
   end
 
   attributes_for :employee do |e|
     e.name = random_string
+  end
+  
+  attributes_for :brand do |b|
+    b.name = random_string
   end
 
 end
